@@ -1,19 +1,21 @@
+import itertools
 
-2
-3
-4
-5
-6
-7
-8
-9
-10
-from itertools import permutations
+def sosu(num):
+    if num == 0 or num == 1:
+        return False
+
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
 def solution(n):
-    a = set()
+    answer = []
     for i in range(len(n)):
-        a |= set(map(int, map("".join, permutations(list(n), i + 1))))
-    a -= set(range(0, 2))
-    for i in range(2, int(max(a) ** 0.5) + 1):
-        a -= set(range(i * 2, max(a) + 1, i))
-    return len(a)
+        number = set(map(int, map("".join, itertools.permutations(list(n), i + 1))))
+
+        for num in number:
+            if sosu(num):
+                answer.append(num)
+
+    return len(set(answer))
