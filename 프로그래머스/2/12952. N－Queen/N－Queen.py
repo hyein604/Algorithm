@@ -1,9 +1,9 @@
+answer = 0
+
 def solution(n):
-    global answer
     v1 = [0 for _ in range(n)]  # 열
     v2 = [0 for _ in range(n * 2)]  # 대각선 상방
     v3 = [0 for _ in range(n * 2)]  # 대각선 하방
-    answer = 0
 
     def dfs(num):
         global answer
