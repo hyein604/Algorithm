@@ -5,7 +5,7 @@ while n > 0:
     if n % 5 == 0:
         answer += n // 5
         n = 0
-        continue
+        break
     n -= 3
     answer += 1
 
